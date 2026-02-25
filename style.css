@@ -1,0 +1,333 @@
+:root {
+    --bg-color: #0f0f0f;
+    --card-bg: #1a1a1a;
+    --accent: #00ff88;
+    --text-main: #ffffff;
+    --text-dim: #a0a0a0;
+    --transition: all 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+a:hover {
+    filter: brightness(1.2);
+    text-decoration: underline;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 8%;
+    background: rgba(15, 15, 15, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #222;
+}
+
+.logo {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+.hero {
+    padding: 120px 8% 60px;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.hero p {
+    color: var(--text-dim);
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.stack-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding: 60px 8%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card-stacked {
+	display: flex;
+    flex-direction: column;
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #333;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.project-card-stacked:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.project-info {
+	padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--card-bg);
+}
+
+.category {
+    color: var(--accent);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.project-info h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.project-info p {
+    color: var(--text-dim);
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+}
+
+.case-study-link {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-bottom: 2px solid var(--accent);
+    align-self: flex-start;
+    padding-bottom: 4px;
+    transition: var(--transition);
+}
+
+.case-study-link:hover {
+    color: var(--accent);
+    padding-left: 8px;
+}
+
+.content-section {
+    padding: 80px 8%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.content-section h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 50px;
+    height: 3px;
+    background: var(--accent);
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.skill-category h3 {
+    color: var(--accent);
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.skill-category ul {
+    list-style: none;
+}
+
+.skill-category li {
+    color: var(--text-dim);
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.skill-category li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+footer {
+    text-align: center;
+    padding: 60px 8%;
+    border-top: 1px solid #222;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+}
+
+@media (max-width: 1000px) {
+    .project-card-stacked {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-info {
+        padding: 2rem;
+    }
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .nav-links li {
+        margin: 0 0.75rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    background: #000;
+}
+
+.main-display img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 2px solid #222;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    background: #000;
+}
+
+.slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: auto;
+    scrollbar-color: var(--accent) #222;
+}
+
+.slider::-webkit-scrollbar {
+    height: 10px;
+    display: block;
+}
+
+.slider::-webkit-scrollbar-track {
+    background: #222;
+    border-radius: 10px;
+    margin: 0 20px;
+}
+
+.slider::-webkit-scrollbar-thumb {
+   background: var(--accent);
+   border-radius: 10px;
+   border: 2px solid #222;
+   transition: background 0.3s ease;
+}
+
+.slider::-webkit-scrollbar-thumb:hover {
+    background: #00cc6e;
+}
+
+.slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.slider-hint {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    color: var(--accent);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    pointer-events: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid var(--accent);
+}
